@@ -170,7 +170,7 @@ export default function CEO({ lang }: { lang: string }) {
               <br />
               안녕하세요.
               <br />
-              픽스애드 | JINSIMFIX Co., Ltd. 대표이사 김예진입니다
+              픽스애드 | JINSIMFIX Co., Ltd. 대표이사 김예진입니다.
               <br />
               <br />
               처음엔 일개 광고회사 사원으로 시작했습니다. 수많은 고객을 만나고,
