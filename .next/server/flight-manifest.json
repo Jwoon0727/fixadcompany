@@ -1,11 +1,37 @@
 {
   "__ssr_module_mapping__": {
+    "(app-client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx": {
+      "": {
+        "id": "(sc_client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
+        "name": "",
+        "chunks": [
+          "app/(service)/[lang]/page:app/(service)/[lang]/page"
+        ],
+        "async": false
+      },
+      "*": {
+        "id": "(sc_client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
+        "name": "*",
+        "chunks": [
+          "app/(service)/[lang]/page:app/(service)/[lang]/page"
+        ],
+        "async": false
+      },
+      "default": {
+        "id": "(sc_client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
+        "name": "default",
+        "chunks": [
+          "app/(service)/[lang]/page:app/(service)/[lang]/page"
+        ],
+        "async": false
+      }
+    },
     "(app-client)/./src/app/(service)/(_components)/Footer/FourColumns.tsx": {
       "": {
         "id": "(sc_client)/./src/app/(service)/(_components)/Footer/FourColumns.tsx",
         "name": "",
         "chunks": [
-          "app/(service)/(default)/layout:app/(service)/(default)/layout"
+          "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
         ],
         "async": false
       },
@@ -13,7 +39,7 @@
         "id": "(sc_client)/./src/app/(service)/(_components)/Footer/FourColumns.tsx",
         "name": "*",
         "chunks": [
-          "app/(service)/(default)/layout:app/(service)/(default)/layout"
+          "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
         ],
         "async": false
       },
@@ -21,7 +47,7 @@
         "id": "(sc_client)/./src/app/(service)/(_components)/Footer/FourColumns.tsx",
         "name": "default",
         "chunks": [
-          "app/(service)/(default)/layout:app/(service)/(default)/layout"
+          "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
         ],
         "async": false
       }
@@ -31,7 +57,7 @@
         "id": "(sc_client)/./src/app/(service)/(_components)/Header/WithRightAlignedNav/index.tsx",
         "name": "",
         "chunks": [
-          "app/(service)/(default)/layout:app/(service)/(default)/layout"
+          "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
         ],
         "async": false
       },
@@ -39,7 +65,7 @@
         "id": "(sc_client)/./src/app/(service)/(_components)/Header/WithRightAlignedNav/index.tsx",
         "name": "*",
         "chunks": [
-          "app/(service)/(default)/layout:app/(service)/(default)/layout"
+          "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
         ],
         "async": false
       },
@@ -47,33 +73,7 @@
         "id": "(sc_client)/./src/app/(service)/(_components)/Header/WithRightAlignedNav/index.tsx",
         "name": "default",
         "chunks": [
-          "app/(service)/(default)/layout:app/(service)/(default)/layout"
-        ],
-        "async": false
-      }
-    },
-    "(app-client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx": {
-      "": {
-        "id": "(sc_client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
-        "name": "",
-        "chunks": [
-          "app/(service)/(default)/page:app/(service)/(default)/page"
-        ],
-        "async": false
-      },
-      "*": {
-        "id": "(sc_client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
-        "name": "*",
-        "chunks": [
-          "app/(service)/(default)/page:app/(service)/(default)/page"
-        ],
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
-        "name": "default",
-        "chunks": [
-          "app/(service)/(default)/page:app/(service)/(default)/page"
+          "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
         ],
         "async": false
       }
@@ -189,12 +189,38 @@
       "static/css/_app-client_src_app_globals_css.css"
     ]
   },
+  "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/(service)/(default)/(_components)/LandingPage/index.tsx": {
+    "": {
+      "id": "(app-client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
+      "name": "",
+      "chunks": [
+        "app/(service)/[lang]/page:app/(service)/[lang]/page"
+      ],
+      "async": false
+    },
+    "*": {
+      "id": "(app-client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
+      "name": "*",
+      "chunks": [
+        "app/(service)/[lang]/page:app/(service)/[lang]/page"
+      ],
+      "async": false
+    },
+    "default": {
+      "id": "(app-client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
+      "name": "default",
+      "chunks": [
+        "app/(service)/[lang]/page:app/(service)/[lang]/page"
+      ],
+      "async": false
+    }
+  },
   "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/(service)/(_components)/Footer/FourColumns.tsx": {
     "": {
       "id": "(app-client)/./src/app/(service)/(_components)/Footer/FourColumns.tsx",
       "name": "",
       "chunks": [
-        "app/(service)/(default)/layout:app/(service)/(default)/layout"
+        "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
       ],
       "async": false
     },
@@ -202,7 +228,7 @@
       "id": "(app-client)/./src/app/(service)/(_components)/Footer/FourColumns.tsx",
       "name": "*",
       "chunks": [
-        "app/(service)/(default)/layout:app/(service)/(default)/layout"
+        "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
       ],
       "async": false
     },
@@ -210,7 +236,7 @@
       "id": "(app-client)/./src/app/(service)/(_components)/Footer/FourColumns.tsx",
       "name": "default",
       "chunks": [
-        "app/(service)/(default)/layout:app/(service)/(default)/layout"
+        "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
       ],
       "async": false
     }
@@ -220,7 +246,7 @@
       "id": "(app-client)/./src/app/(service)/(_components)/Header/WithRightAlignedNav/index.tsx",
       "name": "",
       "chunks": [
-        "app/(service)/(default)/layout:app/(service)/(default)/layout"
+        "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
       ],
       "async": false
     },
@@ -228,7 +254,7 @@
       "id": "(app-client)/./src/app/(service)/(_components)/Header/WithRightAlignedNav/index.tsx",
       "name": "*",
       "chunks": [
-        "app/(service)/(default)/layout:app/(service)/(default)/layout"
+        "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
       ],
       "async": false
     },
@@ -236,33 +262,7 @@
       "id": "(app-client)/./src/app/(service)/(_components)/Header/WithRightAlignedNav/index.tsx",
       "name": "default",
       "chunks": [
-        "app/(service)/(default)/layout:app/(service)/(default)/layout"
-      ],
-      "async": false
-    }
-  },
-  "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/(service)/(default)/(_components)/LandingPage/index.tsx": {
-    "": {
-      "id": "(app-client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
-      "name": "",
-      "chunks": [
-        "app/(service)/(default)/page:app/(service)/(default)/page"
-      ],
-      "async": false
-    },
-    "*": {
-      "id": "(app-client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
-      "name": "*",
-      "chunks": [
-        "app/(service)/(default)/page:app/(service)/(default)/page"
-      ],
-      "async": false
-    },
-    "default": {
-      "id": "(app-client)/./src/app/(service)/(default)/(_components)/LandingPage/index.tsx",
-      "name": "default",
-      "chunks": [
-        "app/(service)/(default)/page:app/(service)/(default)/page"
+        "app/(service)/[lang]/layout:app/(service)/[lang]/layout"
       ],
       "async": false
     }

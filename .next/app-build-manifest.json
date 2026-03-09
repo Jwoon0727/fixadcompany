@@ -10,15 +10,25 @@
       "static/chunks/main-app.js",
       "static/chunks/app/head.js"
     ],
+    "/(service)/(default)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(service)/(default)/page.js"
+    ],
     "/(service)/(default)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(service)/(default)/layout.js"
     ],
-    "/(service)/(default)/page": [
+    "/(service)/[lang]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(service)/(default)/page.js"
+      "static/chunks/app/(service)/[lang]/page.js"
+    ],
+    "/(service)/[lang]/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(service)/[lang]/layout.js"
     ]
   }
 }
