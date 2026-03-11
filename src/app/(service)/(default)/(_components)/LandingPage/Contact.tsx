@@ -1,155 +1,85 @@
 'use client'
 
-import { useState } from 'react'
-import axios from 'axios'
-import { t } from '@root/src/shared/utils/getTranslation'
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+import { BsArrowUpRight } from 'react-icons/bs'
+import { useScrollAnimation } from '@root/src/hooks/use-scroll-animation'
 
-const LS = {
-  name: {
-    ko: '이름',
-    ja: '名前',
-    en: 'Name',
-  },
-  email: {
-    ko: '이메일 주소',
-    ja: 'メールアドレス',
-    en: 'Email Address',
-  },
-  tel: {
-    ko: '휴대폰 번호',
-    ja: '電話番号',
-    en: 'Phone Number',
-  },
-  company: {
-    ko: '회사',
-    ja: '会社',
-    en: 'Company',
-  },
-  message: {
-    ko: '문의 내용',
-    ja: 'お問い合わせ内容',
-    en: 'Message',
-  },
-  submit: {
-    ko: '문의하기',
-    ja: 'お問い合わせ',
-    en: 'Contact',
-  },
-}
-
-const initState = { name: '', email: '', tel: '', company: '', message: '' }
-
-export default function Contact({ lang }: { lang: string }) {
-  const [formState, setFormState] = useState({
-    ...initState,
-  })
-
-  async function onSubmit(e) {
-    e.preventDefault()
-
-    axios
-      .post('/api/contact', {
-        ...formState,
-      })
-      .then(res => {
-        if (res.data.success === 'true') {
-          alert('문의를 성공적으로 전달하였습니다.')
-          setFormState({
-            ...initState,
-          })
-        } else {
-          alert('문의에 실패하였습니다.')
-        }
-      })
-      .catch(() => {
-        alert('문의에 실패하였습니다.')
-      })
-  }
-
-  function handleInputChange(e) {
-    e.preventDefault()
-
-    const { name, value } = e.target
-
-    setFormState(prev => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
+export default function Contact({ lang }: { lang?: string } = {}) {
+  const sectionRef = useScrollAnimation()
 
   return (
-    <div
+    <section
       id="contact"
-      className="py-32 mx-5 border-t border-t-gray-400 xl:mx-auto relative"
-      style={{
-        backgroundImage: 'url(/contact4.png)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}>
-      {/* 배경 오버레이를 추가하여 텍스트 가독성 향상 */}
-      <div className="absolute inset-0 bg-gray-400 bg-opacity-40" style={{ zIndex: 1 }}></div>
+      ref={sectionRef}
+      className="relative py-8 md:py-24 text-black overflow-hidden"
+    >
+      {/* Base white + subtle warm tint + faint texture */}
+      <div className="absolute inset-0 z-0 bg-white" />
+      <div
+        className="absolute inset-0 z-0 opacity-40 pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(135deg, transparent 20%, rgba(253,227,220,0.35) 60%, rgba(245,218,205,0.3) 100%)',
+        }}
+      />
+      <div
+        className="absolute inset-0 z-0 opacity-70 pointer-events-none"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)',
+          backgroundSize: '30px 30px',
+        }}
+      />
 
-      {/* 콘텐츠를 오버레이 위에 배치 */}
-      <div className="relative z-10">
+      {/* Content */}
+      <div
+        data-animate="scale-in"
+        className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20"
+        style={{ transitionDelay: '0.1s' }}
+      >
+        <p
+          data-animate="fade-up"
+          className="text-neutral-600 text-sm tracking-widest uppercase mb-4"
+          style={{ transitionDelay: '0.2s' }}
+        >
+          Contact
+        </p>
+        <h2
+          data-animate="fade-up"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black mb-4 md:mb-8 text-balance"
+          style={{ transitionDelay: '0.3s' }}
+        >
+          브랜드에 진심을 담아,
+          <br />
+          성과로 이어드립니다.
+        </h2>
+        <p
+          data-animate="fade-up"
+          className="text-neutral-600 text-base md:text-lg leading-relaxed max-w-xl mb-6 md:mb-12"
+          style={{ transitionDelay: '0.4s' }}
+        >
+          지금 바로 상담 문의하세요 :) <br />
+          픽스애드가 당신의 든든한 마케팅 파트너가 되겠습니다.
+        </p>
+
         <div
-          className="text-4xl font-bold tracking-tight sm:text-6xl text-center"
-          style={{
-            color: '#f47963',
-            // background: 'linear-gradient(135deg, #f47963, #d12a75)',
-            // WebkitBackgroundClip: 'text',
-            // WebkitTextFillColor: 'transparent',
-          }}>
-          CONTACT
-        </div>
-        <div className="mx-auto max-w-xl lg:max-w-4xl">
-          {/* <p className="mt-2 text-lg leading-8 text-gray-600">
-            We help companies and individuals build out their brand guidelines.
-          </p> */}
-          <div
-            className="text-xl lg:text-2xl font-medium tracking-tight text-center mt-16"
-            style={{
-              lineHeight: '1.6',
-              color: 'white',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.7)',
-            }}>
-            " 브랜드에 진심을 담아, 성과로 이어드립니다. "
-            <br />
-            지금 상담 받기
-          </div>
-
-          <div className="flex justify-center mt-16 font-medium">
-            <a
-              href="http://pf.kakao.com/_eCxoxoxj"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-[#FEE500] hover:bg-yellow-400 text-black font-medium text-sm rounded-lg shadow transition-colors duration-200"
-              style={{ fontSize: '1.25rem' }}>
-              <img
-                src="/kakao.png"
-                alt="카카오톡"
-                className="w-7 h-7 mr-4"
-                style={{ display: 'inline-block', verticalAlign: 'middle' }}
-              />
-              <span className="text-lg">카카오톡 문의하기</span>
-            </a>
-          </div>
+          data-animate="fade-up"
+          className="flex flex-col sm:flex-row gap-4"
+          style={{ transitionDelay: '0.5s' }}
+        >
+          <a
+            href="https://pf.kakao.com/_eCxoxoxj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 bg-black text-white px-8 py-4 text-sm font-medium tracking-wide hover:bg-neutral-800 transition-colors duration-300 group"
+          >
+            카카오톡 문의하기
+            <BsArrowUpRight
+              size={16}
+              className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+            />
+          </a>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
