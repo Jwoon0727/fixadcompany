@@ -36,7 +36,7 @@ const services = [
   },
   {
     number: "05",
-    title: "따종디엔핑",
+    title: "Dazhongdianping",
     subtitle: "따종디엔핑",
     description: "매장 등록, CPC 등",
     image: "/redesign/services/Dianping.jpg",
@@ -86,8 +86,9 @@ export default function Services({ lang }: { lang?: string } = {}) {
           className="text-neutral-500 text-base md:text-lg leading-relaxed max-w-md"
           style={{ transitionDelay: "0.2s" }}
         >
-          브랜드의 목표에 가장 정확히 맞는 방식으로, 결과 중심의 마케팅 성장
-          전략을 설계합니다.
+          브랜드의 목표에 가장 정확히 맞는 방식으로,
+          <br />
+          결과 중심의 마케팅 성장 전략을 설계합니다.
         </p>
       </div>
 
