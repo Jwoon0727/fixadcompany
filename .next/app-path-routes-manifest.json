@@ -1,4 +1,0 @@
-{
-  "/(service)/(default)/page": "/",
-  "/(service)/[lang]/page": "/[lang]"
-}

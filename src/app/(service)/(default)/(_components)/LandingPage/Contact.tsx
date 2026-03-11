@@ -9,6 +9,7 @@ export default function Contact({ lang }: { lang?: string } = {}) {
   return (
     <section
       id="contact"
+      data-theme="light"
       ref={sectionRef}
       className="relative py-8 md:py-24 text-black overflow-hidden"
     >

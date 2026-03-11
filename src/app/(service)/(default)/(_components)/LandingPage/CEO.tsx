@@ -1,204 +1,230 @@
-import { useState } from "react";
-import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { t } from "@root/src/shared/utils/getTranslation";
+'use client'
 
-const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
-];
+import { useScrollAnimation } from '@root/src/hooks/use-scroll-animation'
+import { useState } from 'react'
+import Image from 'next/image'
+import { BsX, BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 
-const LS = {
-  ceo: {
-    ko: "김선우",
-    ja: "金 宣雨（キム•ソヌ）",
-    en: "Kim Sunwoo",
-  },
-  position: {
-    ko: "빅지 엔터테인먼트 대표",
-    ja: "BIG-G ENTERTAINMENT 代表取締役",
-    en: "BIG-G ENTERTAINMENT CEO",
-  },
-  history1: {
-    ko: "2022 Hot place gym CEO",
-    ja: "2022 Hot Place Gym CEO",
-    en: "2022 Hot Place Gym CEO",
-  },
-  history2: {
-    ko: "2023 투초이스 법인 총괄",
-    ja: "2023 Two Choice Consunting 法人総括",
-    en: "2023 Two Choice Consulting Corporation General Manager",
-  },
-  history3: {
-    ko: "2023 빅지 엔터테인먼트 설립",
-    ja: "2023 BIG-G ENTERTAINMENT 設立",
-    en: "2023 BIG-G ENTERTAINMENT Establishment",
-  },
-  ideology: {
-    ko: "회사이념",
-    ja: "企業理念",
-    en: "Company Ideology",
-  },
-  companyIdeology1: {
-    ko: `" 광고주와 크리에이터를 잇다 "`,
-    ja: `" 広告主とクリエイターとの結び "`,
-    en: `" Connecting Advertisers and Creators "`,
-  },
-  companyIdeology2: {
-    ko: "빅지 엔터테이먼트는 광고주의 니즈와 크리에이터의 가치를 최우선으로 생각하며, 광고주 크리에이터 빅지엔터테이먼트 모두가 함께 성장할 수 있는 시장을 만들어가고 있습니다.",
-    ja: "BIG-G ENTERTAINMENTは、広告主様のニーズとクリエイター様の価値を最優先で考え、広告主様、クリエイター様、そしてBIG-Gまで共に成長できるマーケットを創り上げております。",
-    en: "BIG-G ENTERTAINMENT is a company that prioritizes the needs of advertisers and the value of creators, and is creating a market where advertisers, creators, and BIG-G can all grow together.",
-  },
-  companyIdeology3: {
-    ko: "단순한 광고가 아닌 모두가 찾아가고 싶은 집을 만들고 싶습니다.",
-    ja: "単なるコマーシャルではなく、皆様から「行きたい」思われる所が創りたいです。",
-    en: "We want to create a home that everyone wants to find.",
-  },
-  companyIdeology4: {
-    ko: "크리에이터들이 품고 있는 가능성과 업주들이 펼쳐나가는 꿈 이 두가지 가치 사이를 잇는 징검다리로 빅지 엔터테이먼트가 항상 서있겠습니다.",
-    ja: "クリエイター様のそれぞれの可能性と、広告主様が抱いている夢を繋ぐ「架け橋」として、BIG-Gが尽力いたします。",
-    en: "As a bridge connecting the potential of creators and the dreams of owners, BIG-G ENTERTAINMENT is always here.",
-  },
-};
+const galleryImages = Array.from({ length: 11 }, (_, i) => ({
+  id: i + 1,
+  src: `/redesign/about/${i + 1}.jpg`,
+  alt: `갤러리 이미지 ${i + 1}`,
+}))
 
-export default function CEO({ lang }: { lang: string }) {
+export default function CEO({ lang }: { lang?: string } = {}) {
+  const sectionRef = useScrollAnimation()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const openModal = (index: number) => {
+    setCurrentImageIndex(index)
+    setIsModalOpen(true)
+    document.body.style.overflow = 'hidden'
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    document.body.style.overflow = 'unset'
+  }
+
+  const nextImage = () => {
+    setCurrentImageIndex(prev => (prev + 1) % galleryImages.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex(prev =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1,
+    )
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'ArrowRight') nextImage()
+    if (e.key === 'ArrowLeft') prevImage()
+    if (e.key === 'Escape') closeModal()
+  }
+
   return (
-    <div
+    <section
       id="company"
-      className="py-32 max-w-7xl border-t border-t-gray-400 mx-5 xl:mx-auto"
+      ref={sectionRef}
+      className="pt-28 md:pt-36 pb-16 md:pb-20 px-6 md:px-12 lg:px-20 bg-[#0a0a0a] text-white"
     >
-      <div
-        className="text-5xl font-bold tracking-tight text-black sm:text-6xl text-center "
-        style={{
-          color: "#f47963",
-          // background: 'linear-gradient(135deg, #f47963, #d12a75)',
-          // WebkitBackgroundClip: 'text',
-          // WebkitTextFillColor: 'transparent',
-        }}
+      <p
+        data-animate="fade-up"
+        className="text-neutral-500 text-sm tracking-widest uppercase mb-4"
+        style={{ transitionDelay: '0s' }}
       >
-        COMPANY
-      </div>
-      <div className="mt-16 grid grid-template lg:grid-cols-[2fr_1fr]">
-        {/* CEO 사진 및 이름 */}
-        <div className="lg:border-r border-l-black border-r-gray-400 w-full">
-          <div className="relative">
-            {/* <div className="absolute px-12 text-white">
-              <h2 className="text-5xl mt-4">가지왕</h2>
-              <h5 className="text-2xl mt-3">빅지 엔터테인먼트 대표</h5>
-            </div> */}
-            <div className="w-full bg-gray-100 aspect-[1/1] overflow-hidden">
-              <div className="grid grid-cols-2">
-                <div className="bg-red-500 aspect-square overflow-hidden">
-                  <img
-                    src="/ceo/1.jpeg"
-                    alt="ceo"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="bg-red-500 aspect-square overflow-hidden">
-                  <img
-                    src="/ceo/2.jpeg"
-                    alt="ceo"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="bg-red-500 aspect-square overflow-hidden">
-                  <img
-                    src="/ceo/3.jpeg"
-                    alt="ceo"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="bg-red-500 aspect-square overflow-hidden">
-                  <img
-                    src="/ceo.jpeg"
-                    alt="ceo"
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+        Company
+      </p>
+      <h2
+        data-animate="fade-up"
+        className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-10 md:mb-14"
+        style={{ transitionDelay: '0.1s' }}
+      >
+        ABOUT US
+      </h2>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div data-animate="fade-left" style={{ transitionDelay: '0.2s' }}>
+          <div className="grid grid-cols-3 gap-2 md:gap-3">
+            {galleryImages.slice(0, 8).map((image, index) => (
+              <div
+                key={image.id}
+                className="relative aspect-square cursor-pointer overflow-hidden rounded-lg group"
+                onClick={() => openModal(index)}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
               </div>
-              {/* <img src="/ceo.jpg" alt="ceo" loading="lazy" className="w-full h-full object-cover" /> */}
+            ))}
+
+            <div
+              className="relative aspect-square cursor-pointer overflow-hidden rounded-lg bg-black border border-neutral-800 flex items-center justify-center group hover:border-[#E26263] transition-all duration-300"
+              onClick={() => openModal(8)}
+            >
+              <div className="text-center">
+                <p className="text-white text-4xl md:text-5xl font-bold mb-2 group-hover:scale-110 transition-transform">
+                  +3
+                </p>
+                <p className="text-neutral-400 text-sm tracking-wide group-hover:text-white transition-colors">
+                  더보기
+                </p>
+              </div>
             </div>
           </div>
-          <div className="h-[1px] bg-gray-400 mb-4 hidden lg:block" />
-          <div className="py-12 pt-10 lg:py-4 lg:px-12">
-            {/* <h3 className="text-3xl lg:text-4xl">이력</h3> */}
-            <h3 className="text-4xl lg:text-5xl tracking-widest">김예진</h3>
-            <h5 className="text-2xl mt-3">픽스애드 대표</h5>
-            <p className="text-lg mt-8 text-gray-600 text-right">
-              진심이 만든 전략,
-              <br />
-              오래 찾는 마케팅,
-              <br />
-              픽스애드
-              {/* 2022 픽스 애드 설립 */}
-              <br />
-              {/* 2023 픽스 애드 대표 */}
-              <br />
-              {/* 2024 픽스 애드 대표 */}
-              <br />
-              {/* 2025 픽스 애드 대표 */}
-              {/* {t(LS.history1, lang)} */}
-              <br />
-              {/* {t(LS.history2, lang)} */}
-              <br />
-              {/* {t(LS.history3, lang)} */}
-            </p>
-          </div>
         </div>
-        {/* 이력 및 회사이념 */}
-        <div className="lg:pl-12">
-          {/* <div className="py-4 hidden lg:block">
-            <h3 className="text-5xl tracking-widest">이선우</h3>
-            <h5 className="text-2xl mt-3">빅지 엔터테인먼트 대표</h5>
-          </div>
-          <div className="h-[2px] bg-black lg:my-4 lg:w-full w-32 mx-auto" /> */}
-          <div className="py-8 lg:py-4">
-            <h3 className="text-2xl lg:text-2xl font-bold">
-              "진심이 만든 전략, 증명하는 성과,
-              <br />
-              오래 찾는 픽스애드"
-            </h3>
-            {/* <div className="text-black text-xl mt-4"></div> */}
-            <p className="text-base mt-4 text-gray-600">
-              <br />
-              안녕하세요.
-              <br />
-              픽스애드 | JINSIMFIX Co., Ltd. 대표이사 김예진입니다.
-              <br />
-              <br />
-              처음엔 일개 광고회사 사원으로 시작했습니다. 수많은 고객을 만나고,
-              그들의 브랜드를 함께 키워 오며 저 역시 몇 년 동안 끊임없이 배우고
-              성장해 왔습니다.
-              <br />
-              <br />
-              고객 한 분 한 분의 성과는 제게 단순한 결과가 아닌, 진심을 담은
-              마케팅의 가치를 다시금 깨닫게 해 주는 동력이었습니다. 그러한
-              경험들이 쌓여 더 많은 분들과 진정성 있게 일하고 싶다는 마음으로
-              픽스애드 | JINSIMFIX Co., Ltd. 를 설립하게 되었습니다.
-              <br />
-              <br />
-              SNS 플랫폼은 이제 언어와 문화를 넘어 브랜드를 연결하는 도구가
-              되었고, 디지털 광고는 단순 노출이 아닌 글로벌 신뢰의 시작점이
-              되었습니다.
-              <br />
-              <br />
-              픽스애드 | JINSIMFIX Co., Ltd. 는 N사 출신 개발자들과 함께 다른
-              곳에 없는 마케팅 솔루션을 직접 개발하며 시장을 선도합니다.
-              <br />
-              <br />
-              고객의 브랜드가 오래 사랑받을 수 있도록, 진심을 담아
-              함께하겠습니다.
+
+        <div data-animate="fade-right" style={{ transitionDelay: '0.3s' }}>
+          <div className="flex flex-col gap-6">
+            <p className="text-white text-base md:text-lg leading-relaxed">
+              픽스애드(주식회사 진심픽스)는 브랜드의 성장을 설계하는 디지털 SNS
+              마케팅 전문 기업입니다. 다양한 산업의 고객과 브랜드를 함께
+              성장시키며 축적해온 경험을 바탕으로, 단순한 광고 운영을 넘어
+              브랜드의 지속 가능한 성장을 위한 전략적 마케팅 솔루션을 제공합니다.
             </p>
+            <p className="text-neutral-400 text-base leading-relaxed">
+              오늘날 디지털 플랫폼은 언어와 문화를 넘어 전 세계의 소비자와
+              브랜드를 연결하는 핵심 인프라로 자리 잡았습니다. 이에 따라 디지털
+              마케팅은 단순한 노출을 넘어 브랜드의 신뢰를 구축하고 글로벌 시장과
+              연결하는 중요한 전략적 수단으로 발전하고 있습니다.
+            </p>
+            <p className="text-neutral-400 text-base leading-relaxed">
+              픽스애드는 국내 주요 플랫폼은 물론, 빠르게 변화하는 글로벌 디지털
+              환경에 대응하여 글로벌 플랫폼까지 확장되는 통합 마케팅 전략을
+              제공합니다. 이를 통해 광고주분들의 브랜드가 국내 시장을 넘어 더
+              넓은 글로벌 시장에서 새로운 기회를 발견하고 지속적으로 성장할 수
+              있도록 돕습니다.
+              <br /> 또한 N사 출신 개발자들과 차별화된 마케팅 솔루션을 직접
+              개발하고 운영하며, 데이터와 기술을 기반으로 변화하는 디지털 시장
+              속에서 고객 브랜드의 경쟁력을 지속적으로 강화하고 있습니다.
+            </p>
+            <p className="text-white text-base leading-relaxed font-medium">
+              픽스애드는 단기적인 성과에 머무르지 않고, 브랜드가 시장에서 오래
+              사랑받을 수 있도록 진정성과 신뢰를 바탕으로 함께 성장하는 마케팅
+              파트너가 되겠습니다.
+            </p>
+            <br />
+            <blockquote className="mt-4 border-l-2 border-[#E26263] pl-6">
+              <p className="text-white text-lg md:text-xl leading-relaxed font-medium italic">
+                &quot;픽스애드는 고객의 브랜드가 오래 사랑받을 수 있도록, 진심을
+                담아 함께하겠습니다.&quot;
+              </p>
+            </blockquote>
           </div>
         </div>
       </div>
-    </div>
-  );
+
+      {isModalOpen && (
+        <div
+          data-modal-overlay
+          role="dialog"
+          aria-modal="true"
+          aria-label="갤러리 모달"
+          tabIndex={0}
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+          onClick={closeModal}
+          onKeyDown={handleKeyDown}
+        >
+          <button
+            className="absolute top-4 right-4 z-50 text-white hover:text-amber-400 transition-colors p-2"
+            onClick={e => {
+              e.stopPropagation()
+              closeModal()
+            }}
+            aria-label="닫기"
+          >
+            <BsX size={32} />
+          </button>
+
+          <button
+            className="absolute left-4 z-50 text-white hover:text-amber-400 transition-colors p-2 bg-black/50 rounded-full"
+            onClick={e => {
+              e.stopPropagation()
+              prevImage()
+            }}
+            aria-label="이전 이미지"
+          >
+            <BsChevronLeft size={40} />
+          </button>
+
+          <button
+            className="absolute right-4 z-50 text-white hover:text-amber-400 transition-colors p-2 bg-black/50 rounded-full"
+            onClick={e => {
+              e.stopPropagation()
+              nextImage()
+            }}
+            aria-label="다음 이미지"
+          >
+            <BsChevronRight size={40} />
+          </button>
+
+          <div
+            className="relative w-full h-full max-w-6xl max-h-[90vh] mx-4"
+            onClick={e => e.stopPropagation()}
+          >
+            <Image
+              src={galleryImages[currentImageIndex].src}
+              alt={galleryImages[currentImageIndex].alt}
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full">
+            {currentImageIndex + 1} / {galleryImages.length}
+          </div>
+
+          <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex gap-2 overflow-x-auto max-w-[90vw] px-4 scrollbar-hide">
+            {galleryImages.map((image, index) => (
+              <button
+                key={image.id}
+                className={`relative w-16 h-16 flex-shrink-0 rounded-md overflow-hidden border-2 transition-all ${
+                  index === currentImageIndex
+                    ? 'border-amber-400 scale-110'
+                    : 'border-transparent opacity-50 hover:opacity-100'
+                }`}
+                onClick={e => {
+                  e.stopPropagation()
+                  setCurrentImageIndex(index)
+                }}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                />
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+  )
 }

@@ -1,35 +1,35 @@
-'use client'
+"use client";
 
 const navigation = {
   solutions: [
-    { name: 'Marketing', href: '#' },
-    { name: 'Analytics', href: '#' },
-    { name: 'Commerce', href: '#' },
-    { name: 'Insights', href: '#' },
+    { name: "Marketing", href: "#" },
+    { name: "Analytics", href: "#" },
+    { name: "Commerce", href: "#" },
+    { name: "Insights", href: "#" },
   ],
   support: [
-    { name: 'Pricing', href: '#' },
-    { name: 'Documentation', href: '#' },
-    { name: 'Guides', href: '#' },
-    { name: 'API Status', href: '#' },
+    { name: "Pricing", href: "#" },
+    { name: "Documentation", href: "#" },
+    { name: "Guides", href: "#" },
+    { name: "API Status", href: "#" },
   ],
   company: [
-    { name: 'About', href: '#' },
-    { name: 'Blog', href: '#' },
-    { name: 'Jobs', href: '#' },
-    { name: 'Press', href: '#' },
-    { name: 'Partners', href: '#' },
+    { name: "About", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "Jobs", href: "#" },
+    { name: "Press", href: "#" },
+    { name: "Partners", href: "#" },
   ],
   legal: [
-    { name: 'Claim', href: '#' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
+    { name: "Claim", href: "#" },
+    { name: "Privacy", href: "#" },
+    { name: "Terms", href: "#" },
   ],
   social: [
     {
-      name: 'Facebook',
-      href: '#',
-      icon: props => (
+      name: "Facebook",
+      href: "#",
+      icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -40,9 +40,9 @@ const navigation = {
       ),
     },
     {
-      name: 'Instagram',
-      href: '#',
-      icon: props => (
+      name: "Instagram",
+      href: "#",
+      icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -53,18 +53,18 @@ const navigation = {
       ),
     },
     {
-      name: 'Twitter',
-      href: '#',
-      icon: props => (
+      name: "Twitter",
+      href: "#",
+      icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
         </svg>
       ),
     },
     {
-      name: 'GitHub',
-      href: '#',
-      icon: props => (
+      name: "GitHub",
+      href: "#",
+      icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -75,9 +75,9 @@ const navigation = {
       ),
     },
     {
-      name: 'YouTube',
-      href: '#',
-      icon: props => (
+      name: "YouTube",
+      href: "#",
+      icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
             fillRule="evenodd"
@@ -88,11 +88,11 @@ const navigation = {
       ),
     },
   ],
-}
+};
 
 export default function FourColumns() {
   return (
-    <footer className="bg-white" aria-labelledby="footer-heading">
+    <footer className="bg-black" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -173,17 +173,19 @@ export default function FourColumns() {
         <div className="w-full">
           <img className="mx-auto h-28" src="/hero/logo.png" alt="FIXAD" />
         </div>
-        <div className="text-center text-sm mt-8 text-gray-700">
-          <div>픽스애드(FIXAD) | 주식회사 주식회사 진심픽스(JINSIMFIX Co., Ltd.)</div>
+        <div className="text-center text-sm mt-8 text-neutral-500">
+          <div>픽스애드(FIXAD) | 주식회사 진심픽스(JINSIMFIX Co., Ltd.)</div>
           <div>대표이사: 김예진</div>
           <div>사업자등록번호: 349-87-03693</div>
           <div>서울특별시 금천구 디지털로 178, 가산퍼블릭 A동 15층 1503호</div>
           {/* <div>Email: fixad@fixad.kr</div> */}
         </div>
         <div className="mt-4  border-gray-900/10 pt-4">
-          <p className="text-xs text-center leading-5 text-gray-500">&copy; 2025 JINSIMFIX, Co. All rights reserved.</p>
+          <p className="text-xs text-center leading-5 text-neutral-500">
+            &copy; 2025 JINSIMFIX, Co. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

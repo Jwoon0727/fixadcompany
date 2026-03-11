@@ -60,6 +60,7 @@ export default function Services({ lang }: { lang?: string } = {}) {
   return (
     <section
       id="services"
+      data-theme="light"
       ref={sectionRef as React.RefObject<HTMLDivElement>}
       className="py-28 md:py-36 px-6 md:px-12 lg:px-20 bg-white text-[#0a0a0a]"
     >
