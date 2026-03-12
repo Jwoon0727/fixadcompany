@@ -13,7 +13,7 @@ export default function Hero({ lang }: { lang?: string } = {}) {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-contain object-top md:object-cover"
+        className="absolute inset-0 top-12 md:top-0 w-full h-full object-contain object-top md:object-cover"
       >
         <source src={VIDEO_SRC} type="video/mp4" />
       </video>
