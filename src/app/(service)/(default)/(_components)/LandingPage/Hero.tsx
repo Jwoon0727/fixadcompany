@@ -4,13 +4,16 @@ const VIDEO_SRC = "/redesign/main/fixadVid.mp4";
 
 export default function Hero({ lang }: { lang?: string } = {}) {
   return (
-    <div id="hero" className="bg-gray-100 h-screen relative overflow-hidden">
+    <div
+      id="hero"
+      className="bg-gray-100 aspect-video md:aspect-auto md:h-screen relative overflow-hidden pt-6 md:pt-8"
+    >
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-contain object-top md:object-cover"
       >
         <source src={VIDEO_SRC} type="video/mp4" />
       </video>

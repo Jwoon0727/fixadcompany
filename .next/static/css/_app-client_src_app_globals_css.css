@@ -835,6 +835,9 @@ select {
 .aspect-square {
   aspect-ratio: 1 / 1;
 }
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
 .h-10 {
   height: 2.5rem;
 }
@@ -1291,6 +1294,10 @@ select {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+.object-top {
+  -o-object-position: top;
+     object-position: top;
 }
 .p-2 {
   padding: 0.5rem;
@@ -2147,8 +2154,16 @@ body {
     display: none;
   }
 
+  .md\:aspect-auto {
+    aspect-ratio: auto;
+  }
+
   .md\:h-8 {
     height: 2rem;
+  }
+
+  .md\:h-screen {
+    height: 100vh;
   }
 
   .md\:min-h-\[420px\] {
@@ -2185,6 +2200,11 @@ body {
 
   .md\:gap-8 {
     gap: 2rem;
+  }
+
+  .md\:object-cover {
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 
   .md\:p-8 {
