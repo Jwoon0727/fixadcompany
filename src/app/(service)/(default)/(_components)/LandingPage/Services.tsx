@@ -62,7 +62,7 @@ export default function Services({ lang }: { lang?: string } = {}) {
       id="services"
       data-theme="light"
       ref={sectionRef as React.RefObject<HTMLDivElement>}
-      className="py-28 md:py-36 px-6 md:px-12 lg:px-20 bg-white text-[#0a0a0a]"
+      className="pt-8 pb-28 md:pb-36 px-6 md:px-12 lg:px-20 bg-white text-[#0a0a0a]"
     >
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-20">
         <div>

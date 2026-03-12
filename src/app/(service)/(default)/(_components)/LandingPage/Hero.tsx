@@ -6,14 +6,14 @@ export default function Hero({ lang }: { lang?: string } = {}) {
   return (
     <div
       id="hero"
-      className="bg-gray-100 aspect-video md:aspect-auto md:h-screen relative overflow-hidden pt-6 md:pt-8"
+      className="bg-white aspect-video md:aspect-auto md:h-screen relative overflow-hidden pt-6 md:pt-8"
     >
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 top-12 md:top-0 w-full h-full object-contain object-top md:object-cover"
+        className="absolute inset-x-0 top-16 h-[calc(100%-3rem)] w-full object-contain object-top md:inset-0 md:h-full md:object-cover"
       >
         <source src={VIDEO_SRC} type="video/mp4" />
       </video>
