@@ -10,15 +10,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(service)/(default)/layout.js"
     ],
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/layout.js"
-    ],
     "/head": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/head.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/layout.js"
     ],
     "/(service)/[lang]/page": [
       "static/chunks/webpack.js",

@@ -1,3 +1,4 @@
 {
-  "/(service)/(default)/page": "app/(service)/(default)/page.js"
+  "/(service)/(default)/page": "app/(service)/(default)/page.js",
+  "/(service)/[lang]/page": "app/(service)/[lang]/page.js"
 }

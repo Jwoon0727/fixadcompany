@@ -2,6 +2,9 @@ self.__RSC_CSS_MANIFEST={
   "__entry_css_mods__": {
     "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/(service)/(default)/page": [
       "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/globals.css"
+    ],
+    "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/(service)/[lang]/page": [
+      "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/globals.css"
     ]
   },
   "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/layout.tsx": [
