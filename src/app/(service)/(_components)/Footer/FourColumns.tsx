@@ -177,7 +177,7 @@ export default function FourColumns() {
           <div>픽스애드(FIXAD) | 주식회사 진심픽스(JINSIMFIX Co., Ltd.)</div>
           <div>대표이사: 김예진</div>
           <div>사업자등록번호: 349-87-03693</div>
-          <div>서울특별시 금천구 디지털로 178, 가산퍼블릭 A동 15층 1503호</div>
+          <div>서울특별시 금천구 디지털로 178, 가산퍼블릭 A동 17층 1713호</div>
           {/* <div>Email: fixad@fixad.kr</div> */}
         </div>
         <div className="mt-4  border-gray-900/10 pt-4">

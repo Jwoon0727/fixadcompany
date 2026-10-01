@@ -1,13 +1,10 @@
 {
   "__entry_css_mods__": {
-    "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/(service)/(default)/page": [
-      "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/globals.css"
-    ],
-    "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/(service)/[lang]/page": [
-      "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/globals.css"
+    "/Users/jwoonsm5/Desktop/MacM5Dev/fixadSeo분석리포트/fixadcompany-main/src/app/(service)/(default)/page": [
+      "/Users/jwoonsm5/Desktop/MacM5Dev/fixadSeo분석리포트/fixadcompany-main/src/app/globals.css"
     ]
   },
-  "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/layout.tsx": [
-    "/Users/mymac/Desktop/Mac mini/DEVELOPE/fixadcompany/fixad 2/src/app/globals.css"
+  "/Users/jwoonsm5/Desktop/MacM5Dev/fixadSeo분석리포트/fixadcompany-main/src/app/layout.tsx": [
+    "/Users/jwoonsm5/Desktop/MacM5Dev/fixadSeo분석리포트/fixadcompany-main/src/app/globals.css"
   ]
 }
